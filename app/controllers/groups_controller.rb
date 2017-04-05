@@ -12,11 +12,6 @@ class GroupsController < ApplicationController
    def edit
    end
 
-       if current_user != @group.user
-         redirect_to root_path, alert: "You have no permission."
-       end
-     end
-
    def new
    @group = Group.new
  end
@@ -43,7 +38,6 @@ class GroupsController < ApplicationController
  end
 
  def destroy
-
    @group.destroy
    redirect_to groups_path, alert: "Group deleted"
  end
